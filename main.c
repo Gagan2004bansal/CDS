@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include "Headers_files/searching/searching.h"
+#include "Headers_files/sorting/sorting.h"
+
 int main(){
     
 
@@ -16,7 +18,19 @@ int main(){
     int ans2 = b_search(arr, &target, sizeof(arr)/sizeof(arr[0]), sizeof(arr[0]));
     printf("Binary Search : %d\n", ans2);
 
-    // --- Searching End --- 
+    //  --- Searching End --- 
+
+
+    //  --- Sorting Start ---
+    
+    int arr1[] = {5, 2, 9, 4, 5, 6};
+    selectionSort(arr1, sizeof(arr1)/sizeof(arr1[0]), sizeof(arr1[0]), compareInt);
+
+    for(int i = 0; i<6; i++){
+        printf("%d ", arr1[i]);
+    }
+    printf("\n");
+    //  --- Sorting End ---
 
     return 0;
 }
