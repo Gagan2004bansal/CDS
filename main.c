@@ -1,7 +1,8 @@
 #include <stdio.h>
 // #include "Headers_files/searching/searching.h"
 // #include "Headers_files/sorting/sorting.h"
-#include "Headers_files/String/String.h"
+// #include "Headers_files/String/String.h"
+#include "Headers_files/Linked_List/linkedList.h"
 
 int main(){
     
@@ -39,28 +40,75 @@ int main(){
 
     //  --- Custom String Start ---
 
-    String str = create();
+    // String str = create();
 
-    printf("Enter a string: ");
-    readS(&str); 
+    // printf("Enter a string: ");
+    // readS(&str); 
 
-    printf("Your input: %s\n", getS(&str));
+    // printf("Your input: %s\n", getS(&str));
 
-    printf("String Length: %zu\n", lenghtS(&str));
+    // printf("String Length: %zu\n", lenghtS(&str));
 
-    printf("Check String is Empty or not : %d\n", isemptyS(&str));
+    // printf("Check String is Empty or not : %d\n", isemptyS(&str));
 
-    String str2 = create();
+    // String str2 = create();
 
-    printf("Enter the string to reverse : ");
-    readS(&str2);
-    reverseS(&str2);
-    printf("Reverse String %s\n", getS(&str2));
+    // printf("Enter the string to reverse : ");
+    // readS(&str2);
+    // reverseS(&str2);
+    // printf("Reverse String %s\n", getS(&str2));
 
-    freeS(&str); 
-    freeS(&str2);
+    // freeS(&str); 
+    // freeS(&str2);
 
     //  --- Custom String End ---
+
+    //  --- Linked List Start ---
+
+    Node* head = NULL;
+
+    InsertAtHead(&head, 10);
+    InsertAtHead(&head, 5);
+    InsertAtTail(&head, 20);
+    InsertAtTail(&head, 25);
+
+    
+    printf("Initial list: ");
+    PrintList(head);
+
+  
+    InsertAtPosition(&head, 15, 3);
+    printf("After inserting 15 at position 3 : ");
+    PrintList(head);
+
+
+    int position = SearchList(head, 20);
+    if (position != -1) {
+        printf("Element 20 found at position: %d\n", position);
+    } else {
+        printf("Element 20 not found in the list.\n");
+    }
+
+    int length = LengthList(head);
+    printf("List length: %d\n", length);
+
+    DeleteByValue(&head, 10); 
+    printf("After deleting the value 10: ");
+    PrintList(head);
+
+    DeleteAtPosition(&head, 2); 
+    printf("After deleting the node at position 2: ");
+    PrintList(head);
+
+    SortList(&head);
+    printf("After sorting the list: ");
+    PrintList(head);
+
+    DeleteList(&head);
+    printf("After deleting the entire list: ");
+    PrintList(head); 
+
+    //  --- Linked List End ---
 
     return 0;
 }
