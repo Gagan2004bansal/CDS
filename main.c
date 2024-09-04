@@ -190,7 +190,7 @@ void save_all_books_to_file(Book* books, int count) {
     fclose(file);
 }
 
-// Function to remove a book from the list by title
+// Function to remove a book from the list by title 
 void remove_book(Book* books, int* book_count, const char* title) {
     int index = -1;
     for (int i = 0; i < *book_count; i++) {

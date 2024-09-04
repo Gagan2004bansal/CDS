@@ -1,7 +1,8 @@
 {
     "files.associations": {
         "searching.h": "c",
-        "stdio.h": "c"
+        "stdio.h": "c",
+        "queue.h": "c"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
