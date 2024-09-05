@@ -245,7 +245,7 @@ void update_book(Book* books, int book_count, const char* title) {
         printf("Enter new year: ");
         int new_year;
         scanf("%d", &new_year);
-        getchar(); // Consume newline character
+        getchar(); 
 
         strcpy(books[index].title, getS(&new_title));
         strcpy(books[index].author, getS(&new_author));
@@ -263,7 +263,7 @@ void update_book(Book* books, int book_count, const char* title) {
 
 int main() {
     Book books[10000];   
-    int book_count = load_books_from_file(books, 10000);  // Load books from file at the start
+    int book_count = load_books_from_file(books, 10000);  
     int choice;
     String title_str = create();
     String author_str = create();
@@ -285,7 +285,7 @@ int main() {
 
                 printf("Enter year: ");
                 scanf("%d", &year);
-                getchar(); // Consume newline character
+                getchar(); /
 
                 // Create a new book and save to file
                 if (book_count < 10000) {
@@ -310,9 +310,9 @@ int main() {
                 if (book_count == 0) {
                     printf("No books to display.\n");
                 } else {
-                    // Reload books from file before displaying
+                    
                     book_count = load_books_from_file(books, 10000);
-                    sort(books, book_count, sizeof(Book), compare_books);  // Sort before displaying
+                    sort(books, book_count, sizeof(Book), compare_books);  
 
                     printf("Books:\n");
                     for (int i = 0; i < book_count; i++) {
@@ -326,7 +326,6 @@ int main() {
                 printf("Enter title to search: ");
                 read_string(&title_str);
 
-                // Reload books from file before searching
                 book_count = load_books_from_file(books, 10000);
                 int index = b_search(books, getS(&title_str), book_count, sizeof(Book), compare_books);
 
@@ -336,7 +335,6 @@ int main() {
                     printf("Book not found.\n");
                 }
 
-                // Clear string
                 freeS(&title_str);
                 title_str = create();
                 break;
@@ -348,7 +346,6 @@ int main() {
 
                 remove_book(books, &book_count, getS(&title_str));
 
-                // Clear string
                 freeS(&title_str);
                 title_str = create();
                 break;
@@ -360,7 +357,6 @@ int main() {
 
                 update_book(books, book_count, getS(&title_str));
 
-                // Clear string
                 freeS(&title_str);
                 title_str = create();
                 break;
